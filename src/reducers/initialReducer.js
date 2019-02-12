@@ -1,3 +1,0 @@
-inititalstate = {
-  loggedIn: false
-}
