@@ -12,6 +12,7 @@ fetch('http://localhost:3000/sign_up',
       dispatch(type: LOGIN_ACTION, payload: {id: res.id, username: res.username}}
   })
 }
+
 //Sample Logout Function
 export function logout(){
  return dispatch => {
