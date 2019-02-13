@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LoginCont from './components/LoginCont'
 import './App.css';
 
 class App extends Component {
@@ -6,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-           <p>Welcome to Flatiron Blogger!</p>
+             <LoginCont/>
         </header>
       </div>
     );
