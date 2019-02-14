@@ -6,7 +6,6 @@ import { login } from '../actions/index'
 class LoginCont extends Component {
 
   submit = values => {
-    // console.log(values)
     this.props.login(values)
   }
 

@@ -2,16 +2,15 @@ import { LOGIN_ACTION, LOGOUT_ACTION } from './types'
 
 //Sample Login Function
 export function login(data) {
-  console.log("We're in the login function, and here's the data: ", data)
   return dispatch => {
-fetch('http://localhost:3000/users', {
+fetch('http://localhost:3000/tokens', {
   method: 'POST',
   headers: {"Content-Type": "application/json"},
   body: JSON.stringify(data)
 }).then(res => res.json())
   .then(res => {
       // dispatch(type: LOGIN_ACTION, payload: {id: res.id, username: res.username}
-      console.log("This is the return from the fetch", res)
+      console.log("This is the return from the fetch", res.jwt)
   })
  }
 }

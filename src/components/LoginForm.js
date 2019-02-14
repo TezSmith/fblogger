@@ -11,20 +11,12 @@ const LoginForm = (props) => {
     <div className="formCont">
      <form onSubmit={handleSubmit}>
        <div>
-         <label htmlFor="first_name">First Name</label><br/>
-         <Field name="first_name" component="input" type="text" />
-       </div>
-       <div>
-         <label htmlFor="last_name">Last Name</label><br/>
-         <Field name="last_name" component="input" type="text" />
-       </div>
-       <div>
-         <label htmlFor="password">Password</label><br/>
-         <Field name="password" component="input" type="text" />
-       </div>
-       <div>
          <label htmlFor="email">Email</label><br/>
          <Field name="email" component="input" type="email" />
+       </div>
+       <div>
+       <label htmlFor="password">Password</label><br/>
+       <Field name="password" component="input" type="text" />
        </div>
        <button type="submit">Submit</button>
      </form>
