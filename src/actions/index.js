@@ -2,6 +2,7 @@ import { LOGIN_ACTION, LOGOUT_ACTION } from './types'
 
 //Sample Login Function
 export function login(data) {
+  console.log("We're in the login function, and here's the data: ", data)
   return dispatch => {
 fetch('http://localhost:3000/users', {
   method: 'POST',

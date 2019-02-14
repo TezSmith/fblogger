@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 
 const LoginForm = (props) => {
-  
+
 
   const { handleSubmit } = props
 
@@ -12,11 +12,11 @@ const LoginForm = (props) => {
      <form onSubmit={handleSubmit}>
        <div>
          <label htmlFor="firstName">First Name</label><br/>
-         <Field name="firstName" component="input" type="text" />
+         <Field name="first_name" component="input" type="text" />
        </div>
        <div>
          <label htmlFor="lastName">Last Name</label><br/>
-         <Field name="lastName" component="input" type="text" />
+         <Field name="last_name" component="input" type="text" />
        </div>
        <div>
          <label htmlFor="email">Email</label><br/>
