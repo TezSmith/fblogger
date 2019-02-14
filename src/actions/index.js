@@ -7,11 +7,11 @@ export function login(data) {
 fetch('http://localhost:3000/users', {
   method: 'POST',
   headers: {"Content-Type": "application/json"},
-  body: JSON.stringify(data)})
-  .then(res => res.json())
+  body: JSON.stringify(data)
+}).then(res => res.json())
   .then(res => {
       // dispatch(type: LOGIN_ACTION, payload: {id: res.id, username: res.username}
-      console.log(res)
+      console.log("This is the return from the fetch", res)
   })
  }
 }

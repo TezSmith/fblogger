@@ -2,7 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 
-const LoginForm = (props) => {
+const RegistrationForm = (props) => {
 
 
   const { handleSubmit } = props
@@ -23,6 +23,10 @@ const LoginForm = (props) => {
          <Field name="password" component="input" type="text" />
        </div>
        <div>
+         <label htmlFor="password_confirmation">Confirm Password</label><br/>
+         <Field name="password_confirmation" component="input" type="text" />
+       </div>
+       <div>
          <label htmlFor="email">Email</label><br/>
          <Field name="email" component="input" type="email" />
        </div>
@@ -40,4 +44,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)((reduxForm({form: 'loginform'}))(LoginForm))
+export default connect(mapStateToProps)((reduxForm({form: 'registrationform'}))(RegistrationForm))
