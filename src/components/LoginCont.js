@@ -21,7 +21,7 @@ class LoginCont extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.initial.loggedIn,
+    showLogin: state.initial.showLogin,
     user: state.initial.user
   }
 }
