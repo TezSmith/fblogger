@@ -10,6 +10,7 @@ class LoginCont extends Component {
   }
 
   render() {
+      console.log(this.props.user)
     return (
        <div>
          <h3>Welcome to Flatiron Blogger!</h3>

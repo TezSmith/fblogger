@@ -2,7 +2,7 @@ import * as type from '../actions/types'
 
 const initialState = {
   showLogin: true,
-  user: {}
+  user: {id: 0, first_name: ""}
 }
 
 const initialReducer = (state = initialState, action) => {
