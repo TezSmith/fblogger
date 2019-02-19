@@ -7,6 +7,8 @@ const initialState = {
 
 const initialReducer = (state = initialState, action) => {
  switch(action.type) {
+   case type.REGISTER_ACTION:
+    return {...state, user: action.payload, showLogin: false}
    case type.LOGIN_ACTION:
      return {   ...state, user: action.payload, showLogin: false   }
    case type.LOGOUT_ACTION:

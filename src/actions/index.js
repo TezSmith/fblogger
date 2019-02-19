@@ -2,6 +2,11 @@ import { LOGIN_ACTION, REGISTER_ACTION, LOGOUT_ACTION } from './types'
 import jwtDecode from 'jwt-decode'
 
 //Register Action
+export function register(data) {
+  return dispatch => {
+    console.log("I'm in the register action:", data)
+  }
+}
 
 //Login Function
 export function login(data) {

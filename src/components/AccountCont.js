@@ -1,20 +1,22 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import RegistrationForm from './RegistrationForm'
 import LoginForm from './LoginForm'
 import { login } from '../actions/index'
 
-class LoginCont extends Component {
+class AccountCont extends Component {
 
   submit = values => {
     this.props.login(values)
   }
 
   render() {
-      console.log(this.props.user)
+
+      console.log("These are the props in the account container", this.props)
     return (
        <div>
          <h3>Welcome to Flatiron Blogger!</h3>
-         <LoginForm onSubmit={this.submit}/>
+         this.state.showLoggedIn ? <LoginForm onSubmit={this.submit}/> : <RegistrationForm onSubmit={this.submit}/>
        </div>
     )
   }
@@ -27,4 +29,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { login })(LoginCont)
+export default connect(mapStateToProps, { login })(AccountCont)
