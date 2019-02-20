@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const LoginForm = (props) => {
 
 
-  const { handleSubmit } = props
+  const { handleSubmit, handleClick } = props
 
   return (
     <div className="formCont">
@@ -20,7 +20,9 @@ const LoginForm = (props) => {
        </div>
        <button type="submit">Submit</button>
      </form>
+     <button onClick={handleClick}> Register for an account.</button>
     </div>
+
   )
 
 }

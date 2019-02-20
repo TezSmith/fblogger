@@ -1,5 +1,13 @@
-import { LOGIN_ACTION, REGISTER_ACTION, LOGOUT_ACTION } from './types'
+import { TOGGLE_LOGIN, LOGIN_ACTION, REGISTER_ACTION, LOGOUT_ACTION } from './types'
 import jwtDecode from 'jwt-decode'
+
+
+//Show Login
+export function toggleLogin() {
+  return dispatch => {
+    dispatch({type: TOGGLE_LOGIN})
+  }
+}
 
 //Register Action
 export function register(data) {
@@ -27,7 +35,6 @@ fetch('http://localhost:3000/tokens', {
       // Also you'll need to decode the JWT token in order to get the user data has
       // For that npm install jwt-decode
       // Then you'll need to dispatch an action that updates your user key in the initial store
-
       dispatch({type: LOGIN_ACTION, payload: {id: result.id, first_name: result.first_name} })
   })
  }
