@@ -24,7 +24,10 @@ class AccountCont extends Component {
     return (
        <div>
          <h3>Welcome to Flatiron Blogger!</h3>
-         {auth.login()}
+         <div>
+           <h3>Welcome to Flatiron Blogger!</h3>
+           {this.props.showLogin ? <LoginForm onSubmit={this.submit} handleClick={this.handleClick}/> : <RegistrationForm onSubmit={this.submit} handleClick={this.handleClick}/>}
+         </div>
        </div>
     )
   }
