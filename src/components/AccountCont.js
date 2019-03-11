@@ -7,11 +7,7 @@ import { login, toggleLogin, register } from '../actions/index'
 class AccountCont extends Component {
 
   submit = values => {
-    if (this.props.showLogin === true) {
-      this.props.login(values)
-    } else {
-      this.props.register(values)
-    }
+    this.props.showLogin === true ? this.props.login(values) : this.props.register(values)
   }
 
   handleClick = () => {
@@ -19,7 +15,6 @@ class AccountCont extends Component {
   }
 
   render() {
-
 
     return (
        <div>
