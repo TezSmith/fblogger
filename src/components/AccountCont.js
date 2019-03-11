@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import RegistrationForm from './RegistrationForm'
-import LoginForm from './LoginForm'
+// import RegistrationForm from './RegistrationForm'
+// import LoginForm from './LoginForm'
 import { login, toggleLogin, register } from '../actions/index'
+
+import Auth from '../auth/auth';
+
 
 class AccountCont extends Component {
 
@@ -16,10 +19,12 @@ class AccountCont extends Component {
 
   render() {
 
+    const auth = new Auth();
+
     return (
        <div>
          <h3>Welcome to Flatiron Blogger!</h3>
-         {this.props.showLogin ? <LoginForm onSubmit={this.submit} handleClick={this.handleClick}/> : <RegistrationForm onSubmit={this.submit} handleClick={this.handleClick}/>}
+         {auth.login()}
        </div>
     )
   }
@@ -31,5 +36,10 @@ const mapStateToProps = (state) => {
     user: state.initial.user
   }
 }
+
+// <div>
+//   <h3>Welcome to Flatiron Blogger!</h3>
+//   {this.props.showLogin ? <LoginForm onSubmit={this.submit} handleClick={this.handleClick}/> : <RegistrationForm onSubmit={this.submit} handleClick={this.handleClick}/>}
+// </div>
 
 export default connect(mapStateToProps, { login, toggleLogin, register })(AccountCont)
