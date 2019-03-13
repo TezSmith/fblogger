@@ -2,11 +2,12 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import GitHubLogin from 'react-github-login'
+import { gLogin, gFail } from '../actions/index'
 
 const LoginForm = (props) => {
 
-  const CLIENT_ID = process.env.GITHUB_CLIENT_ID
-
+  const CLIENT_ID = process.env.REACT_APP_GITHUB_CLIENT_ID
+  console.log(CLIENT_ID)
   const { handleSubmit, handleClick } = props
 
   return (
@@ -22,10 +23,10 @@ const LoginForm = (props) => {
        </div>
        <button type="submit">Submit</button>
      </form>
-     <GitHubLogin clientId={CLIENT_ID}
-    onSuccess={onSuccess}
-    onFailure={onFailure}/>,
-     // <button onClick={handleClick}> Register for an account.</button>
+     <GitHubLogin clientId={CLIENT_ID} redirectUri={`http://localhost:3000/auth/github/callback`}
+    onSuccess={gLogin}
+    onFailure={gFail}/>
+     {/*<button onClick={handleClick}> Register for an account.</button>*/}
     </div>
 
   )
@@ -39,4 +40,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)((reduxForm({form: 'loginform'}))(LoginForm))
+export default connect(mapStateToProps, {gLogin})((reduxForm({form: 'loginform'}))(LoginForm))

@@ -33,9 +33,15 @@ fetch('http://localhost:3000/users', {
 }
 
 //Github Login
-export function githubLogin(e) {
-  console.log("this is the githubLogin")
+export const gLogin = (res) => {
+  
+  console.log("this is the github sucess" , res)
 }
+
+export const gFail = (res) => {
+  console.log("this is the github fail" , res)
+}
+
 
 //Login Function
 export function login(data) {
