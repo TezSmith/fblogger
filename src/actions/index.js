@@ -22,7 +22,7 @@ fetch('http://localhost:3000/users', {
       window.localStorage.setItem('jwt', res.jwt)
       let jwt = window.localStorage.getItem('jwt')
       let result = jwtDecode(jwt)
-
+      console.log("I've registered", result)
       // In the next then, push user to the next page in your app.
       // Also you'll need to decode the JWT token in order to get the user data has
       // For that npm install jwt-decode
@@ -30,6 +30,11 @@ fetch('http://localhost:3000/users', {
       dispatch({type: REGISTER_ACTION, payload: {id: result.id, first_name: result.first_name} })
   })
  }
+}
+
+//Github Login
+export function githubLogin(e) {
+  console.log("this is the githubLogin")
 }
 
 //Login Function
@@ -46,7 +51,7 @@ fetch('http://localhost:3000/tokens', {
 
       let jwt = window.localStorage.getItem('jwt')
       let result = jwtDecode(jwt)
-
+      console.log("I've logged in", result)
       // In the next then, push user to the next page in your app.
       // Also you'll need to decode the JWT token in order to get the user data has
       // For that npm install jwt-decode

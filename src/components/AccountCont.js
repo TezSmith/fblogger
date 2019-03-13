@@ -1,11 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-// import RegistrationForm from './RegistrationForm'
-// import LoginForm from './LoginForm'
+import RegistrationForm from './RegistrationForm'
+import LoginForm from './LoginForm'
 import { login, toggleLogin, register } from '../actions/index'
-
-import Auth from '../auth/auth';
-
 
 class AccountCont extends Component {
 
@@ -19,15 +16,12 @@ class AccountCont extends Component {
 
   render() {
 
-    const auth = new Auth();
+      console.log("This is the account container props ", this.props)
 
     return (
        <div>
-         <h3>Welcome to Flatiron Blogger!</h3>
-         <div>
            <h3>Welcome to Flatiron Blogger!</h3>
            {this.props.showLogin ? <LoginForm onSubmit={this.submit} handleClick={this.handleClick}/> : <RegistrationForm onSubmit={this.submit} handleClick={this.handleClick}/>}
-         </div>
        </div>
     )
   }
@@ -40,9 +34,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-// <div>
-//   <h3>Welcome to Flatiron Blogger!</h3>
-//   {this.props.showLogin ? <LoginForm onSubmit={this.submit} handleClick={this.handleClick}/> : <RegistrationForm onSubmit={this.submit} handleClick={this.handleClick}/>}
-// </div>
-
+//add store props and actions to this account container component
 export default connect(mapStateToProps, { login, toggleLogin, register })(AccountCont)

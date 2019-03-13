@@ -1,9 +1,11 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
+import GitHubLogin from 'react-github-login'
 
 const LoginForm = (props) => {
 
+  const CLIENT_ID = process.env.GITHUB_CLIENT_ID
 
   const { handleSubmit, handleClick } = props
 
@@ -20,7 +22,10 @@ const LoginForm = (props) => {
        </div>
        <button type="submit">Submit</button>
      </form>
-     <button onClick={handleClick}> Register for an account.</button>
+     <GitHubLogin clientId={CLIENT_ID}
+    onSuccess={onSuccess}
+    onFailure={onFailure}/>,
+     // <button onClick={handleClick}> Register for an account.</button>
     </div>
 
   )
