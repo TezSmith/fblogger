@@ -33,9 +33,31 @@ fetch('http://localhost:3000/users', {
 }
 
 //Github Login
-export const gLogin = (res) => {
-  
-  console.log("this is the github sucess" , res)
+export const gLogin = () => {
+
+
+  // let headers = { "Access-Control-Allow-Origin": "http://localhost:3001", "client_id": `${process.env.REACT_APP_GITHUB_CLIENT_ID}`,
+  //             "client_secret": `${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`,
+  //             "scope": "user:email" }
+  //
+  //
+  // fetch('https://github.com/login/oauth/authorize', {
+  //   method: 'GET',
+  //   headers: headers
+  // }).then(res => res.json())
+  //   .then(res => {
+  //    console.log("This is the github token", res)
+  //  })
+
+// fetch('https://github.com/login/oauth/access_token', {
+//   method: 'POST',
+//   headers: {"Content-Type": "application/json"},
+//   body: JSON.stringify(data)
+// }).then(res => res.json())
+//   .then(res => {
+//    console.log("This is the access token", res)
+//  })
+
 }
 
 export const gFail = (res) => {
