@@ -1,15 +1,14 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import GitHubLogin from 'react-github-login'
 import { gLogin, gFail } from '../actions/index'
+import GitHubLogin from 'react-github-login'
+
 
 const LoginForm = (props) => {
 
   const CLIENT_ID = process.env.REACT_APP_GITHUB_CLIENT_ID
-  console.log(CLIENT_ID)
   const { handleSubmit, handleClick } = props
-
   return (
     <div className="formCont">
      <form onSubmit={handleSubmit}>

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import AccountCont from './components/AccountCont'
 import Callback from './components/Callback'
-import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Switch, Route, withRouter } from 'react-router-dom'
+
 
 
 import './App.css';
 
 class App extends Component {
   render() {
+    const { user } = this.props
     return (
       <div className="App">
         <header className="App-header">
@@ -19,4 +22,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    showLogin: state.initial.showLogin,
+    user: state.initial.user
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App));
