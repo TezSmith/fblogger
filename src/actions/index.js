@@ -34,7 +34,7 @@ fetch('http://localhost:3000/users', {
 
 //Github Login
 export const gLogin = () => {
-
+ console.log("Hit")
 
   // let headers = { "Access-Control-Allow-Origin": "http://localhost:3001", "client_id": `${process.env.REACT_APP_GITHUB_CLIENT_ID}`,
   //             "client_secret": `${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`,

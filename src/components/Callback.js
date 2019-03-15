@@ -1,12 +1,20 @@
-import React from 'react'
+import {React, Component} from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
-const Callback = (props) => {
+class Callback extends Component {
 
-  return (
+  componentDidMount() {
+    
+  }
+
+ render() {
+    return (
       <div>
          <h3>Loading...</h3>
       </div>
-  )
+    )
+ }
 }
 
-export default Callback
+export default withRouter(connect(null)(Callback))

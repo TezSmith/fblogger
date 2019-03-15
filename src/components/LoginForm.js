@@ -24,7 +24,7 @@ const LoginForm = (props) => {
      </form>
      <GitHubLogin clientId={CLIENT_ID}
     onSuccess={gLogin}
-    onFailure={gFail}/>
+    onFailure={gFail} redirectUri="http://localhost:3001/callback"/>
      {/*<button onClick={handleClick}> Register for an account.</button>*/}
     </div>
 
