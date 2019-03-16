@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AccountCont from './components/AccountCont'
 import Callback from './components/Callback'
+import Profile from './components/Profile'
 import { connect } from 'react-redux'
 import { Switch, Route, withRouter } from 'react-router-dom'
 
@@ -16,6 +17,7 @@ class App extends Component {
         <header className="App-header">
              <AccountCont/>
              <Route path="/callback" component={Callback}/>
+             <Route path="/profile" component={Profile}/>
         </header>
       </div>
     );

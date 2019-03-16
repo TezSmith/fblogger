@@ -33,35 +33,26 @@ fetch('http://localhost:3000/users', {
 }
 
 //Github Login
-export const gLogin = () => {
- console.log("Hit")
+export const gLogin = async(code) => {
 
-  // let headers = { "Access-Control-Allow-Origin": "http://localhost:3001", "client_id": `${process.env.REACT_APP_GITHUB_CLIENT_ID}`,
-  //             "client_secret": `${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`,
-  //             "scope": "user:email" }
-  //
-  //
-  // fetch('https://github.com/login/oauth/authorize', {
-  //   method: 'GET',
-  //   headers: headers
-  // }).then(res => res.json())
-  //   .then(res => {
-  //    console.log("This is the github token", res)
-  //  })
+ console.log("Hit Login Function", code)
 
-// fetch('https://github.com/login/oauth/access_token', {
-//   method: 'POST',
-//   headers: {"Content-Type": "application/json"},
-//   body: JSON.stringify(data)
-// }).then(res => res.json())
-//   .then(res => {
-//    console.log("This is the access token", res)
-//  })
+let response = await fetch('http://localhost:3000/auth/github/callback', {
+  headers: new Headers({ "Content-Type": "application/json; charset=utf-8", "code":`${code.code}` }),
+  method: 'GET'
+}).then(res => res.json())
+
+console.log("This is the response", response)
+// .then(res => res.json())
+// .then(res => {
+//     console.log("Sent code to backend")
+//     console.log("This is what came back", res)
+//   })
 
 }
 
 export const gFail = (res) => {
-  console.log("this is the github fail" , res)
+  console.log("Github Login Failed Because... ", res)
 }
 
 

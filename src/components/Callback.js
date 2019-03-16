@@ -1,12 +1,8 @@
-import {React, Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 class Callback extends Component {
-
-  componentDidMount() {
-    
-  }
 
  render() {
     return (
@@ -16,5 +12,6 @@ class Callback extends Component {
     )
  }
 }
+
 
 export default withRouter(connect(null)(Callback))
