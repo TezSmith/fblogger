@@ -6,10 +6,10 @@ import GitHubLogin from 'react-github-login'
 // import SocialButton from './SocialButton'
 
 
-
 const LoginForm = (props) => {
 
   const CLIENT_ID = process.env.REACT_APP_GITHUB_CLIENT_ID
+
   const { handleSubmit, handleClick } = props
   return (
     <div className="formCont">
@@ -28,7 +28,7 @@ const LoginForm = (props) => {
       <GitHubLogin clientId={CLIENT_ID}
      onSuccess={gLogin}
      onFailure={gFail} redirectUri="http://localhost:3001/callback"/>
-     
+
      {/*<button onClick={handleClick}> Register for an account.</button>*/}
     </div>
 

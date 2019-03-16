@@ -44,8 +44,11 @@ export const gLogin = async(code) => {
 
   console.log("This is who I am: ", person)
 
-  //person.
-  //person.avatar_url == Photo
+  // person.name  // Actual name
+  // person.login // Username
+  // person.avatar // Photo
+  // person.html_ul // GitHubLink
+  
 }
 
 export const gFail = (res) => {
