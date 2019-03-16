@@ -37,18 +37,15 @@ export const gLogin = async(code) => {
 
  console.log("Hit Login Function", code)
 
-let response = await fetch('http://localhost:3000/auth/github/callback', {
-  headers: new Headers({ "Content-Type": "application/json; charset=utf-8", "code":`${code.code}` }),
-  method: 'GET'
-}).then(res => res.json())
+  let person = await fetch('http://localhost:3000/auth/github/callback', {
+    headers: new Headers({ "Content-Type": "application/json; charset=utf-8", "code":`${code.code}` }),
+    method: 'GET'
+  }).then(res => res.json())
 
-console.log("This is the response", response)
-// .then(res => res.json())
-// .then(res => {
-//     console.log("Sent code to backend")
-//     console.log("This is what came back", res)
-//   })
+  console.log("This is who I am: ", person)
 
+  //person.
+  //person.avatar_url == Photo
 }
 
 export const gFail = (res) => {
