@@ -3,15 +3,13 @@ import AccountCont from './components/AccountCont'
 import Callback from './components/Callback'
 import Profile from './components/Profile'
 import { connect } from 'react-redux'
-import { Switch, Route, withRouter } from 'react-router-dom'
-
-
+import { Route, withRouter } from 'react-router-dom'
 
 import './App.css';
 
 class App extends Component {
+
   render() {
-    const { user } = this.props
     return (
       <div className="App">
         <header className="App-header">

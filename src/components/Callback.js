@@ -4,6 +4,11 @@ import { withRouter } from 'react-router-dom'
 
 class Callback extends Component {
 
+
+  componentDidMount() {
+
+  }
+
  render() {
     return (
       <div>

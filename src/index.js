@@ -5,10 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import configureStore from './store/configureStore'
+import store from './store/configureStore'
 
-
-const store = configureStore()
 
 const Root = ({ store }) => (
   <Provider store={store}>

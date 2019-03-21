@@ -1,5 +1,8 @@
-import { TOGGLE_LOGIN, LOGIN_ACTION, REGISTER_ACTION, LOGOUT_ACTION } from './types'
+import { TOGGLE_LOGIN, LOGIN_ACTION, REGISTER_ACTION } from './types'
 import jwtDecode from 'jwt-decode'
+
+// const CLIENT_ID = process.env.REACT_APP_GITHUB_CLIENT_ID
+// const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URL
 
 
 //Show Login
@@ -32,24 +35,46 @@ fetch('http://localhost:3000/users', {
  }
 }
 
-//Github Login
-export const gLogin = async(code) => {
+export function loadingUser(person){
+    return dispatch => {
+      dispatch({type: LOGIN_ACTION, payload: person})
+  }
+}
 
- console.log("Hit Login Function", code)
-
-  let person = await fetch('http://localhost:3000/auth/github/callback', {
+export const getPerson = (code) => {
+  return fetch('http://localhost:3000/auth/github/callback', {
     headers: new Headers({ "Content-Type": "application/json; charset=utf-8", "code":`${code.code}` }),
     method: 'GET'
-  }).then(res => res.json())
+  })
+  .then(res => res.json())
 
-  console.log("This is who I am: ", person)
+}
+
+//Github Login
+export async function gLogin(code, dispatch){
+  let person = await getPerson(code)
+  console.log("Yo: ", person)
+  dispatch({type: LOGIN_ACTION, payload: person})
+}
+
+ // console.log("Hit Login Function", code)
+ //   return dispatch => {
+ //     dispatch(loadingUser())
+ //    fetch('http://localhost:3000/auth/github/callback', {
+ //      headers: new Headers({ "Content-Type": "application/json; charset=utf-8", "code":`${code.code}` }),
+ //      method: 'GET'
+ //    }).then(res => res.json())
+ //    .then(res => {
+ //      console.log("I'm in the response.")
+ //      dispatch({type: UPDATE_PERSON, payload: res})
+ //    })
 
   // person.name  // Actual name
   // person.login // Username
   // person.avatar // Photo
   // person.html_ul // GitHubLink
-  
-}
+
+
 
 export const gFail = (res) => {
   console.log("Github Login Failed Because... ", res)
