@@ -1,4 +1,4 @@
-import { TOGGLE_LOGIN, LOGIN_ACTION, REGISTER_ACTION, LOGOUT_ACTION } from './types'
+import { TOGGLE_LOGIN, LOGIN_ACTION, REGISTER_ACTION, LOGOUT_ACTION, UPDATE_PERSON } from './types'
 import jwtDecode from 'jwt-decode'
 
 
@@ -32,36 +32,33 @@ fetch('http://localhost:3000/users', {
  }
 }
 
-//Github Login
-export const gLogin = () => {
-
-
-  // let headers = { "Access-Control-Allow-Origin": "http://localhost:3001", "client_id": `${process.env.REACT_APP_GITHUB_CLIENT_ID}`,
-  //             "client_secret": `${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`,
-  //             "scope": "user:email" }
-  //
-  //
-  // fetch('https://github.com/login/oauth/authorize', {
-  //   method: 'GET',
-  //   headers: headers
-  // }).then(res => res.json())
-  //   .then(res => {
-  //    console.log("This is the github token", res)
-  //  })
-
-// fetch('https://github.com/login/oauth/access_token', {
-//   method: 'POST',
-//   headers: {"Content-Type": "application/json"},
-//   body: JSON.stringify(data)
-// }).then(res => res.json())
-//   .then(res => {
-//    console.log("This is the access token", res)
-//  })
-
+export async function getPerson(code){
+  let person = await fetch('http://localhost:3000/auth/github/callback', {
+    method: 'GET',
+    headers: new Headers({"Content-Type": "application/json", "code":`${code}`})
+  })//.then(res => res.json())
+  let parsedPerson = await person.json()
+  return parsedPerson
 }
+
+export function updateStore(person) {
+  return {type: UPDATE_PERSON, payload: person}
+}
+
+//Github Login
+export function gLogin(code){
+  console.log("This is the code: ", code)
+  let person = getPerson(code)
+  console.log("Who I am", person)
+  return dispatch => {
+    dispatch(updateStore(person))
+  }
+}
+
 
 export const gFail = (res) => {
   console.log("this is the github fail" , res)
+  toggleLogin()
 }
 
 

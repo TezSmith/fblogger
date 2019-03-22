@@ -2,7 +2,8 @@ import * as type from '../actions/types'
 
 const initialState = {
   showLogin: true,
-  user: {id: 0, first_name: ""}
+  user: {id: 0, first_name: ""},
+  person: {}
 }
 
 const initialReducer = (state = initialState, action) => {
@@ -13,6 +14,8 @@ const initialReducer = (state = initialState, action) => {
     return {...state, user: action.payload}
    case type.LOGIN_ACTION:
      return {...state, user: action.payload}
+   case type.UPDATE_PERSON:
+     return {...state, person: action.payload}
    case type.LOGOUT_ACTION:
      return initialState
    default:

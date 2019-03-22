@@ -6,6 +6,7 @@ import { login, toggleLogin, register } from '../actions/index'
 
 class AccountCont extends Component {
 
+
   submit = values => {
     this.props.showLogin === true ? this.props.login(values) : this.props.register(values)
   }

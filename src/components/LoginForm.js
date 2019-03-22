@@ -2,14 +2,16 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { gLogin, gFail } from '../actions/index'
-import SocialButton from './SocialButton'
+import GitHubLogin from 'react-github-login'
 
-
+// import SocialButton from './SocialButton'
 
 const LoginForm = (props) => {
 
   const CLIENT_ID = process.env.REACT_APP_GITHUB_CLIENT_ID
+  console.log(CLIENT_ID)
   const { handleSubmit, handleClick } = props
+
   return (
     <div className="formCont">
      <form onSubmit={handleSubmit}>
@@ -23,16 +25,9 @@ const LoginForm = (props) => {
        </div>
        <button type="submit">Submit</button>
      </form>
-     <SocialButton
-      provider='github'
-      appId={CLIENT_ID}
-      onLoginSuccess={gLogin}
-      onLoginFailure={gFail}
-      gatekeeper="http://localhost:3001"
-      redirect="http://localhost:3000/auth/github/callback"
-    >
-      Login with Github
-    </SocialButton>
+     <GitHubLogin clientId={CLIENT_ID}
+     onSuccess={gLogin}
+     onFailure={gFail} redirectUri="http://localhost:3001/callback"/>
      <button onClick={handleClick}> Register for an account.</button>
     </div>
 
