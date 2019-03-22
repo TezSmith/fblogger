@@ -1,8 +1,20 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
+import { SelectField } from 'react-semantic-redux-form';
 
 const RegistrationForm = (props) => {
+
+  const communityMember = [
+    {
+      text: 'student',
+      value: 'Student'
+    },
+    {
+      text: 'instructor',
+      value: 'Instructor'
+    }
+  ]
 
 
   const { handleSubmit, handleClick } = props
@@ -29,6 +41,11 @@ const RegistrationForm = (props) => {
        <div>
          <label htmlFor="email">Email</label><br/>
          <Field name="email" component="input" type="email" />
+       </div>
+       <div>
+       <label htmlFor="email">I am a:</label><br/>
+       <Field name="type" component={SelectField} options={communityMember} />
+
        </div>
        <button type="submit">Submit</button>
      </form>

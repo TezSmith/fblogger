@@ -4,33 +4,32 @@ import { connect } from 'react-redux'
 import { gLogin, gFail } from '../actions/index'
 import GitHubLogin from 'react-github-login'
 
-// import SocialButton from './SocialButton'
-
 const LoginForm = (props) => {
 
   const CLIENT_ID = process.env.REACT_APP_GITHUB_CLIENT_ID
-  console.log(CLIENT_ID)
-  const { handleSubmit, handleClick } = props
+
+  const { handleSubmit } = props
 
   return (
     <div className="formCont">
      <form onSubmit={handleSubmit}>
-       <div>
-         <label htmlFor="email">Email</label><br/>
-         <Field name="email" component="input" type="email" />
-       </div>
-       <div>
-       <label htmlFor="password">Password</label><br/>
-       <Field name="password" component="input" type="text" />
-       </div>
+
+      <Field name="email" component="input" type="email" placeholder="email"/>
+        <br/>
+        <br/>
+       <Field name="password" component="input" type="text" placeholder="password"/>
+       <br/>
+       <br/>
        <button type="submit">Submit</button>
      </form>
-     <GitHubLogin clientId={CLIENT_ID}
-     onSuccess={gLogin}
+       <br/>
+      <GitHubLogin clientId={CLIENT_ID}
+     onSuccess={(code) => { gLogin(code, props.dispatch) } }
      onFailure={gFail} redirectUri="http://localhost:3001/callback"/>
-     <button onClick={handleClick}> Register for an account.</button>
-    </div>
-
+     <br/>
+     <br/>
+     {/*<button onClick={handleClick}> Register for an account.</button>*/}
+   </div>
   )
 
 }
@@ -42,4 +41,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {gLogin})((reduxForm({form: 'loginform'}))(LoginForm))
+export default connect(mapStateToProps, null)((reduxForm({form: 'loginform'}))(LoginForm))
