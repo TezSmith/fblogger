@@ -2,12 +2,7 @@ import * as type from '../actions/types'
 
 const initialState = {
   showLogin: true,
-<<<<<<< HEAD
-  user: {id: 0, first_name: ""},
-  person: {}
-=======
   user: {}
->>>>>>> 651aaa0b6daef1850c85c5c59f0f835df30911a7
 }
 
 const initialReducer = (state = initialState, action) => {

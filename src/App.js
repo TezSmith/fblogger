@@ -13,6 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+             <p>Testing</p>
              <AccountCont/>
              <Route path="/callback" component={Callback}/>
              <Route path="/profile" component={Profile}/>

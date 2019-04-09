@@ -17,8 +17,6 @@ class AccountCont extends Component {
 
   render() {
 
-      console.log("This is the account container props ", this.props)
-
     return (
        <div>
            <h3>Welcome to Flatiron Blogger!</h3>

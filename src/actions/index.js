@@ -35,11 +35,6 @@ fetch('http://localhost:3000/users', {
  }
 }
 
-export function loadingUser(person){
-    return dispatch => {
-      dispatch({type: LOGIN_ACTION, payload: person})
-  }
-}
 
 export const getPerson = (code) => {
   return fetch('http://localhost:3000/auth/github/callback', {
@@ -47,15 +42,6 @@ export const getPerson = (code) => {
     method: 'GET'
   })
   .then(res => res.json())
-
-//Github Login
-export function gLogin(code){
-  console.log("This is the code: ", code)
-  let person = getPerson(code)
-  console.log("Who I am", person)
-  return dispatch => {
-    dispatch(updateStore(person))
-  }
 }
 
 //Github Login
@@ -65,23 +51,11 @@ export async function gLogin(code, dispatch){
   dispatch({type: LOGIN_ACTION, payload: person})
 }
 
- // console.log("Hit Login Function", code)
- //   return dispatch => {
- //     dispatch(loadingUser())
- //    fetch('http://localhost:3000/auth/github/callback', {
- //      headers: new Headers({ "Content-Type": "application/json; charset=utf-8", "code":`${code.code}` }),
- //      method: 'GET'
- //    }).then(res => res.json())
- //    .then(res => {
- //      console.log("I'm in the response.")
- //      dispatch({type: UPDATE_PERSON, payload: res})
- //    })
 
   // person.name  // Actual name
   // person.login // Username
   // person.avatar // Photo
   // person.html_ul // GitHubLink
-
 
 
 export const gFail = (res) => {
